@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>vue.directive自定义指令</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>vue.directive自定义指令</h1>
+    <hr>
+    <div id="app">
+        <div v-shawnz="color">{{num}}</div> 
+        <p><button @click="add">ADD</button></p>       
+    </div>
+    <script type="text/javascript">
+    Vue.directive("shawnz",function (el,binding) {
+       el.style="color:"+binding.value;
+    });
+        var app = new Vue({
+            el: '#app',
+            data: {
+                num: 10,
+                color:'green'
+            },
+            methods:{
+                add:function(){
+                    this.num++;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
